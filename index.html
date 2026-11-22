@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freddy · 50 Años | Invitación Oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/index.css?v=3" />
+</head>
+<body>
+  <!-- Trompetas laterales de celebración (inicio y última fase) -->
+  <div class="celebration-sides" id="celebration-sides" aria-hidden="true">
+    <div class="trumpet trumpet--left">
+      <svg viewBox="0 0 120 120" width="92" height="92" fill="none">
+        <!-- Cuerpo de trompeta apuntando hacia arriba/centro -->
+        <path d="M18 96 L64 46 L76 58 L30 104 Z" fill="url(#goldGrad)" stroke="#FFF3C4" stroke-width="2"/>
+        <path d="M62 42 C78 24, 96 18, 108 16 C106 28, 100 46, 82 62 Z" fill="url(#goldGrad)" stroke="#FFF3C4" stroke-width="2"/>
+        <ellipse cx="95" cy="39" rx="18" ry="8" transform="rotate(-45 95 39)" fill="#0033A0" stroke="#F3DC8A" stroke-width="2"/>
+        <!-- Destellos festivos -->
+        <path d="M98 10 L104 2 M110 22 L118 18 M84 14 L84 4" stroke="#F3DC8A" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="110" cy="8" r="3" fill="#FFFFFF"/>
+        <circle cx="92" cy="4" r="2.5" fill="#1A56DB"/>
+        <defs>
+          <linearGradient id="goldGrad" x1="18" y1="104" x2="108" y2="16" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#B99122"/>
+            <stop offset="50%" stop-color="#F3DC8A"/>
+            <stop offset="100%" stop-color="#D4AF37"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="trumpet trumpet--right">
+      <svg viewBox="0 0 120 120" width="92" height="92" fill="none">
+        <path d="M18 96 L64 46 L76 58 L30 104 Z" fill="url(#goldGradR)" stroke="#FFF3C4" stroke-width="2"/>
+        <path d="M62 42 C78 24, 96 18, 108 16 C106 28, 100 46, 82 62 Z" fill="url(#goldGradR)" stroke="#FFF3C4" stroke-width="2"/>
+        <ellipse cx="95" cy="39" rx="18" ry="8" transform="rotate(-45 95 39)" fill="#0033A0" stroke="#F3DC8A" stroke-width="2"/>
+        <path d="M98 10 L104 2 M110 22 L118 18 M84 14 L84 4" stroke="#F3DC8A" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="110" cy="8" r="3" fill="#FFFFFF"/>
+        <circle cx="92" cy="4" r="2.5" fill="#1A56DB"/>
+        <defs>
+          <linearGradient id="goldGradR" x1="18" y1="104" x2="108" y2="16" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#B99122"/>
+            <stop offset="50%" stop-color="#F3DC8A"/>
+            <stop offset="100%" stop-color="#D4AF37"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="confetti-layer" id="confetti-layer"></div>
+  </div>
+
+  <!-- Barra superior sutil estilo marcador -->
+  <header class="top-bar">
+    <div class="top-bar__inner">
+      <span class="top-bar__tag">EDICIÓN DORADA · 50 AÑOS</span>
+      <span class="top-bar__club">BOGOTÁ · AZUL &amp; BLANCO</span>
+    </div>
+  </header>
+
+  <!-- Portada / Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero__bg-pattern" aria-hidden="true"></div>
+    <div class="hero__glow" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <div class="crest-badge" aria-label="Emblema 50 Años Freddy">
+        <div class="crest-badge__stars" aria-hidden="true">★ ★ ★</div>
+        <span class="crest-badge__number">50</span>
+        <span class="crest-badge__label">AÑOS</span>
+      </div>
+
+      <p class="hero__eyebrow">CONVOCATORIA OFICIAL DE CUMPLEAÑOS</p>
+      <h1 class="hero__title">FREDDY</h1>
+      <p class="hero__subtitle">
+        Medio siglo de historia, alegrías y pasión embajadora.<br />
+        Desliza para recorrer los mejores momentos antes del pitazo inicial.
+      </p>
+
+      <div class="countdown" id="countdown" aria-label="Cuenta regresiva para el 6 de noviembre">
+        <p class="countdown__label">CUENTA REGRESIVA · 6 DE NOVIEMBRE · 3:00 PM</p>
+        <div class="countdown__grid">
+          <div class="countdown__box">
+            <span class="countdown__value" id="cd-days">00</span>
+            <span class="countdown__unit">DÍAS</span>
+          </div>
+          <div class="countdown__box">
+            <span class="countdown__value" id="cd-hours">00</span>
+            <span class="countdown__unit">HORAS</span>
+          </div>
+          <div class="countdown__box">
+            <span class="countdown__value" id="cd-minutes">00</span>
+            <span class="countdown__unit">MINUTOS</span>
+          </div>
+          <div class="countdown__box">
+            <span class="countdown__value" id="cd-seconds">00</span>
+            <span class="countdown__unit">SEGUNDOS</span>
+          </div>
+        </div>
+        <p class="countdown__total" id="cd-total-summary">Calculando tiempo restante...</p>
+
+        <div class="reminder-box">
+          <button type="button" class="reminder-btn" id="reminder-btn">
+            🔔 ACTIVAR RECORDATORIO (6 NOV · 8:00 AM)
+          </button>
+          <p class="reminder-status" id="reminder-status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <a href="#galeria" class="hero__scroll-btn">
+        <span>VER RECORRIDO</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Galería Escalonada con Scroll -->
+  <main class="timeline-section" id="galeria">
+    <div class="section-header reveal-up">
+      <span class="section-header__kicker">MINUTO A MINUTO</span>
+      <h2 class="section-header__title">UNA VIDA EN AZUL Y BLANCO</h2>
+      <p class="section-header__desc">
+        Cada foto cuenta un capítulo de estos 50 años inolvidables.
+      </p>
+    </div>
+
+    <div class="timeline" id="timeline-container">
+      <div class="timeline__line" aria-hidden="true"></div>
+      <!-- Las tarjetas de fotos se generan dinámicamente desde js/index.js -->
+    </div>
+  </main>
+
+  <!-- Sección Final: Boleto de Fútbol -->
+  <section class="ticket-section" id="boleto">
+    <div class="section-header reveal-up">
+      <span class="section-header__kicker">GRAN FINAL · CELEBRACIÓN</span>
+      <h2 class="section-header__title">TU BOLETA OFICIAL</h2>
+      <p class="section-header__desc">
+        Presenta este pase de entrada para celebrar los 50 años de Freddy.
+      </p>
+    </div>
+
+    <div class="ticket-wrapper reveal-up">
+      <article class="ticket" aria-label="Boleto de invitación de fútbol para los 50 años de Freddy">
+        <!-- Parte principal del boleto -->
+        <div class="ticket__main">
+          <div class="ticket__header">
+            <div class="ticket__competition">
+              <span class="ticket__dot"></span>
+              <span>COPA 50 AÑOS · EDICIÓN ESPECIAL</span>
+            </div>
+            <span class="ticket__gate">TRIBUNA VIP AZUL</span>
+          </div>
+
+          <div class="ticket__matchup">
+            <div class="ticket__team">
+              <span class="ticket__team-tag">EL FESTEJADO</span>
+              <h3 class="ticket__team-name">FREDDY</h3>
+            </div>
+
+            <div class="ticket__vs">
+              <span class="ticket__vs-badge">50</span>
+              <span class="ticket__vs-text">AÑOS</span>
+            </div>
+
+            <div class="ticket__team ticket__team--right">
+              <span class="ticket__team-tag">CONVOCADOS</span>
+              <h3 class="ticket__team-name">FAMILIA &amp; AMIGOS</h3>
+            </div>
+          </div>
+
+          <div class="ticket__details">
+            <div class="ticket__detail">
+              <span class="ticket__detail-label">FECHA</span>
+              <span class="ticket__detail-value">6 DE NOVIEMBRE</span>
+            </div>
+            <div class="ticket__detail">
+              <span class="ticket__detail-label">PITAZO INICIAL</span>
+              <span class="ticket__detail-value">3:00 PM</span>
+            </div>
+            <div class="ticket__detail">
+              <span class="ticket__detail-label">LUGAR</span>
+              <span class="ticket__detail-value">BOGOTÁ · CASA DE FREDDY</span>
+            </div>
+            <div class="ticket__detail">
+              <span class="ticket__detail-label">ETIQUETA</span>
+              <span class="ticket__detail-value">TOQUE AZUL Y BLANCO</span>
+            </div>
+            <div class="ticket__detail ticket__detail--full">
+              <span class="ticket__detail-label">DIRECCIÓN</span>
+              <span class="ticket__detail-value">CALLE 48A SUR # 9-21 · BARRIO SARASOTA</span>
+            </div>
+          </div>
+
+          <div class="ticket__footer-note">
+            <span>★ MILLONARIOS EN EL CORAZÓN ★</span>
+            <span>ASIENTO: <strong>FILA 50 · SILLA 01</strong></span>
+          </div>
+        </div>
+
+        <!-- Línea de corte perforada -->
+        <div class="ticket__perforation" aria-hidden="true">
+          <span class="ticket__notch ticket__notch--top"></span>
+          <span class="ticket__dash"></span>
+          <span class="ticket__notch ticket__notch--bottom"></span>
+        </div>
+
+        <!-- Talón derecho del boleto -->
+        <div class="ticket__stub">
+          <div class="ticket__stub-top">
+            <span class="ticket__stub-label">PASE DE ACCESO</span>
+            <span class="ticket__stub-serial">#MILLOS-50-FRD</span>
+          </div>
+
+          <div class="ticket__barcode" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+
+          <button type="button" class="ticket__rsvp-btn" id="rsvp-btn">
+            CONFIRMAR ASISTENCIA
+          </button>
+          <p class="ticket__rsvp-status" id="rsvp-status" aria-live="polite"></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Hecho para celebrar los <strong>50 años de Freddy</strong> · Azul y Blanco por siempre.</p>
+  </footer>
+
+  <script src="js/index.js?v=3"></script>
+</body>
+</html>
