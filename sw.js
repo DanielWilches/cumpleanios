@@ -1,9 +1,9 @@
-const CACHE_NAME = "freddy-50-v3";
+const CACHE_NAME = "freddy-50-v4";
 const ASSETS = [
   "./",
   "./index.html",
-  "./css/index.css?v=3",
-  "./js/index.js?v=3"
+  "./css/index.css?v=4",
+  "./js/index.js?v=4"
 ];
 
 self.addEventListener("install", (event) => {

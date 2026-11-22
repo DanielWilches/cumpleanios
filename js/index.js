@@ -167,10 +167,10 @@ function configurarBoleto() {
   });
 }
 
-// Fecha objetivo del evento: 6 de noviembre a las 3:00 PM (próxima fecha: 2027)
-const FECHA_EVENTO = new Date(2027, 10, 6, 15, 0, 0);
+// Fecha objetivo del evento: 6 de diciembre de 2026 a las 3:00 PM
+const FECHA_EVENTO = new Date(2026, 11, 6, 15, 0, 0);
 // Recordatorio el mismo día a las 8:00 AM
-const FECHA_RECORDATORIO = new Date(2027, 10, 6, 8, 0, 0);
+const FECHA_RECORDATORIO = new Date(2026, 11, 6, 8, 0, 0);
 const KEY_REMINDER_ENABLED = "freddy50_reminder_enabled";
 const KEY_REMINDER_SENT = "freddy50_reminder_sent";
 
@@ -195,7 +195,7 @@ function iniciarContador(alLlegarFecha) {
       elHoras.textContent = "00";
       elMinutos.textContent = "00";
       elSegundos.textContent = "00";
-      elResumen.textContent = "¡Llegó el 6 de noviembre! Hoy se celebran los 50 años de Freddy.";
+      elResumen.textContent = "¡Llegó el 6 de diciembre! Hoy se celebran los 50 años de Freddy.";
       if (typeof alLlegarFecha === "function") {
         alLlegarFecha();
       }
@@ -213,7 +213,7 @@ function iniciarContador(alLlegarFecha) {
     elHoras.textContent = formatearDosDigitos(horas);
     elMinutos.textContent = formatearDosDigitos(minutos);
     elSegundos.textContent = formatearDosDigitos(segundos);
-    elResumen.textContent = `Faltan ${dias} días (${totalMinutos.toLocaleString("es-CO")} minutos totales) para el 6 de noviembre a las 3:00 PM.`;
+    elResumen.textContent = `Faltan ${dias} días (${totalMinutos.toLocaleString("es-CO")} minutos totales) para el 6 de diciembre de 2026 a las 3:00 PM.`;
   }
 
   actualizar();
@@ -244,7 +244,7 @@ function iniciarRecordatorioPush() {
     if (enviado) {
       btn.classList.add("is-active");
       btn.textContent = "RECORDATORIO ENVIADO ✓";
-      status.textContent = "¡Hoy es 6 de noviembre! La notificación de cumpleaños ya fue activada.";
+      status.textContent = "¡Hoy es 6 de diciembre! La notificación de cumpleaños ya fue activada.";
       return;
     }
 
@@ -252,10 +252,10 @@ function iniciarRecordatorioPush() {
       btn.classList.add("is-active");
       btn.textContent = "RECORDATORIO ACTIVO ✓";
       status.textContent =
-        "Guardado en caché. Cuando abras el navegador el 6 de noviembre desde las 8:00 AM saltará el aviso.";
+        "Guardado en caché. Cuando abras el navegador el 6 de diciembre desde las 8:00 AM saltará el aviso.";
     } else {
       btn.classList.remove("is-active");
-      btn.textContent = "🔔 ACTIVAR RECORDATORIO (6 NOV · 8:00 AM)";
+      btn.textContent = "🔔 ACTIVAR RECORDATORIO (6 DIC · 8:00 AM)";
     }
   }
 
@@ -265,7 +265,7 @@ function iniciarRecordatorioPush() {
 
     const titulo = "🎉 ¡Hoy Freddy cumple 50 años!";
     const opciones = {
-      body: "6 de noviembre · 3:00 PM — Casa de Freddy (Calle 48A Sur # 9-21, Barrio Sarasota).",
+      body: "6 de diciembre · 3:00 PM — Casa de Freddy (Calle 48A Sur # 9-21, Barrio Sarasota).",
       tag: "freddy-50-cumpleanos",
       requireInteraction: true
     };
