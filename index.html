@@ -10,7 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="css/index.css?v=4" />
+  <link rel="stylesheet" href="css/index.css?v=7" />
 </head>
 <body>
   <!-- Trompetas laterales de celebración (inicio y última fase) -->
@@ -69,10 +69,12 @@
     <div class="hero__glow" aria-hidden="true"></div>
 
     <div class="hero__content">
-      <div class="crest-badge" aria-label="Emblema 50 Años Freddy">
-        <div class="crest-badge__stars" aria-hidden="true">★ ★ ★</div>
-        <span class="crest-badge__number">50</span>
-        <span class="crest-badge__label">AÑOS</span>
+      <div class="crest-svg-wrap" aria-label="Escudo oficial de Millonarios 50 Años Freddy">
+        <img src="img/millnarios.png" alt="Escudo oficial de Millonarios" class="crest-img" />
+        <div class="crest-ribbon">
+          <span class="crest-ribbon__stars">★ ★ ★</span>
+          <span class="crest-ribbon__text">50 AÑOS</span>
+        </div>
       </div>
 
       <p class="hero__eyebrow">CONVOCATORIA OFICIAL DE CUMPLEAÑOS</p>
@@ -106,7 +108,7 @@
 
         <div class="reminder-box">
           <button type="button" class="reminder-btn" id="reminder-btn">
-            🔔 ACTIVAR RECORDATORIO (6 DIC · 8:00 AM)
+            🔔 ACTIVAR RECORDATORIO (6 DIC · 3:00 PM)
           </button>
           <p class="reminder-status" id="reminder-status" aria-live="polite"></p>
         </div>
@@ -136,6 +138,33 @@
       <!-- Las tarjetas de fotos se generan dinámicamente desde js/index.js -->
     </div>
   </main>
+
+  <!-- Sección Lluvia de Sobres -->
+  <section class="envelopes-section" id="lluvia-sobres">
+    <div class="envelope-rain-layer" id="envelope-rain-layer" aria-hidden="true"></div>
+
+    <div class="section-header reveal-up">
+      <span class="section-header__kicker">DETALLE ESPECIAL</span>
+      <h2 class="section-header__title">LLUVIA DE SOBRES</h2>
+    </div>
+
+    <div class="envelope-card reveal-up">
+      <div class="envelope-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 80 60" width="76" height="58" fill="none">
+          <rect x="3" y="6" width="74" height="48" rx="8" fill="#071E44" stroke="#D4AF37" stroke-width="2.5"/>
+          <path d="M5 9 L40 34 L75 9" stroke="#F3DC8A" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M5 51 L28 30 M75 51 L52 30" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="40" cy="33" r="7" fill="#D4AF37"/>
+          <text x="40" y="36" text-anchor="middle" fill="#041229" font-size="8" font-weight="800" font-family="sans-serif">50</text>
+        </svg>
+      </div>
+      <p class="envelope-card__text">
+        Tu compañía y tu alegría en este partido de los <strong>50 años</strong> son el mejor regalo para Freddy.
+        Si deseas tener un detalle adicional con el festejado, contaremos con <strong>lluvia de sobres</strong> el día de la celebración.
+      </p>
+      <span class="envelope-card__tag">★ GRACIAS POR CELEBRAR CON NOSOTROS ★</span>
+    </div>
+  </section>
 
   <!-- Sección Final: Boleto de Fútbol -->
   <section class="ticket-section" id="boleto">
@@ -226,9 +255,6 @@
             <span></span><span></span><span></span><span></span><span></span>
           </div>
 
-          <button type="button" class="ticket__rsvp-btn" id="rsvp-btn">
-            CONFIRMAR ASISTENCIA
-          </button>
           <p class="ticket__rsvp-status" id="rsvp-status" aria-live="polite"></p>
         </div>
       </article>
@@ -239,6 +265,6 @@
     <p>Hecho para celebrar los <strong>50 años de Freddy</strong> · Azul y Blanco por siempre.</p>
   </footer>
 
-  <script src="js/index.js?v=4"></script>
+  <script src="js/index.js?v=7"></script>
 </body>
 </html>

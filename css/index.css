@@ -115,45 +115,49 @@ body {
   max-width: 720px;
 }
 
-/* Emblema 50 años */
-.crest-badge {
-  width: 126px;
-  height: 144px;
-  margin: 0 auto 1.75rem;
-  background: linear-gradient(160deg, var(--blue-primary) 0%, var(--blue-navy) 100%);
-  border: 2px solid var(--gold);
-  border-radius: 14px 14px 64px 64px;
-  display: flex;
+/* Escudo estilo Millonarios 50 años */
+.crest-svg-wrap {
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.45),
-    inset 0 0 20px rgba(212, 175, 55, 0.18);
+  margin: 0 auto 1.65rem;
   position: relative;
 }
 
-.crest-badge__stars {
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
+.crest-svg,
+.crest-img {
+  width: 152px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.55));
+}
+
+.crest-ribbon {
+  margin-top: -14px;
+  padding: 0.35rem 1.15rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+  border: 1.5px solid var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+.crest-ribbon__stars {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
   color: var(--gold);
-  margin-bottom: 0.15rem;
 }
 
-.crest-badge__number {
+.crest-ribbon__text {
   font-family: var(--font-display);
-  font-size: 4rem;
-  line-height: 0.9;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  line-height: 1;
   color: var(--white);
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
-}
-
-.crest-badge__label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.25em;
-  color: var(--gold-light);
-  margin-top: 0.15rem;
 }
 
 .hero__eyebrow {
@@ -1016,4 +1020,103 @@ body {
     right: 0.45rem;
     bottom: 10%;
   }
+}
+
+/* =========================================================
+   SECCIÓN LLUVIA DE SOBRES + CARTAS CAYENDO
+   ========================================================= */
+.envelopes-section {
+  position: relative;
+  padding: 5rem 1.25rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: radial-gradient(circle at 50% 45%, rgba(0, 51, 160, 0.25), transparent 65%);
+}
+
+.envelopes-section .section-header {
+  margin-bottom: 2.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.envelope-rain-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.falling-envelope {
+  position: absolute;
+  top: -60px;
+  opacity: 0;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+  animation: envelopeFall var(--dur, 4.2s) linear var(--delay, 0s) forwards;
+}
+
+@keyframes envelopeFall {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) rotate(var(--r0, -12deg)) scale(0.85);
+  }
+  12% {
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(520px) translateX(var(--drift, 40px)) rotate(var(--r1, 24deg)) scale(1);
+  }
+}
+
+.envelope-card {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.4rem 2rem;
+  text-align: center;
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(10, 34, 77, 0.92), rgba(4, 18, 41, 0.96));
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.envelope-card__icon {
+  margin-bottom: 1.15rem;
+  display: inline-block;
+  animation: envelopeFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes envelopeFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
+
+.envelope-card__text {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--off-white);
+  margin-bottom: 1.4rem;
+}
+
+.envelope-card__tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
 }

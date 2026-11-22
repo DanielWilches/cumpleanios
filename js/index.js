@@ -8,51 +8,57 @@ const FOTOS = [
   },
   {
     archivo: "img/img2.jpeg",
-    minuto: "MIN 07'",
-    titulo: "PASIÓN POR EL BALLET AZUL",
-    descripcion: "El orgullo de llevar los colores azul y blanco desde siempre en el corazón."
+    minuto: "MIN 05'",
+    titulo: "EL RITMO DE LA VIDA",
+    descripcion: "Desde pequeño, el baile ha sido parte de su esencia. Una alegría que lo ha acompañado durante toda su vida."
   },
   {
     archivo: "img/img3.jpeg",
-    minuto: "MIN 15'",
-    titulo: "MOMENTOS EN FAMILIA",
-    descripcion: "Las risas, las celebraciones y la compañía de quienes siempre han estado en la titular."
+    minuto: "MIN 11'",
+    titulo: "UNA PASIÓN QUE NO CONOCE DISTANCIAS",
+    descripcion: "Carreteras, buses y kilómetros recorridos. No había distancia suficiente para alejarlo de Millonarios."
   },
   {
     archivo: "img/img4.jpeg",
-    minuto: "MIN 22'",
-    titulo: "HISTORIA Y AMISTAD",
-    descripcion: "Instantes compartidos que se quedan grabados para toda la vida."
+    minuto: "MIN 17'",
+    titulo: "UN AMOR QUE VA A TODAS PARTES",
+    descripcion: "De vacaciones, pero siempre con los colores de su equipo."
   },
   {
     archivo: "img/img5.jpeg",
-    minuto: "MIN 30'",
+    minuto: "MIN 23'",
     titulo: "ALEGRÍAS EN LA TRIBUNA",
     descripcion: "Cada encuentro, cada abrazo y cada motivo para celebrar juntos."
   },
   {
     archivo: "img/img6.jpeg",
-    minuto: "MIN 36'",
-    titulo: "GRANDES VICTORIAS",
-    descripcion: "Metas cumplidas, viajes y anécdotas que hoy recordamos con una sonrisa."
+    minuto: "MIN 29'",
+    titulo: "EL AMOR QUE TRASCIENDE EL TIEMPO",
+    descripcion: "Un cumpleaños junto a su mamá, uno de esos recuerdos que hoy se vuelven tesoros. Porque quienes amamos nunca se van del todo; viven para siempre en nuestros recuerdos y en el corazón."
   },
   {
     archivo: "img/img7.jpeg",
-    minuto: "MIN 42'",
-    titulo: "ESPÍRITU EMBAJADOR",
-    descripcion: "Siempre firme, con entrega, carácter y la mejor energía."
+    minuto: "MIN 35'",
+    titulo: "NÚCLEO",
+    descripcion: "Su hermana, su hermano mayor y su mamá: las personas con quienes compartió la vida y construyó sus primeros recuerdos."
   },
   {
     archivo: "img/img8.jpeg",
-    minuto: "MIN 47'",
-    titulo: "CAMINO AL ANIVERSARIO",
-    descripcion: "Sumando capítulos inolvidables antes del gran pitazo de los 50."
+    minuto: "MIN 40'",
+    titulo: "LA FELICIDAD DE LOS MOMENTOS SIMPLES",
+    descripcion: "En Puerto López, Meta, disfrutando de la tranquilidad y la alegría que lo caracterizan."
   },
   {
     archivo: "img/img9.jpeg",
+    minuto: "MIN 45'",
+    titulo: "HISTORIA Y AMISTAD",
+    descripcion: "Instantes compartidos que se quedan grabados para toda la vida."
+  },
+  {
+    archivo: "img/img10.jpeg",
     minuto: "MIN 50'",
-    titulo: "MEDIO SIGLO DE VIDA",
-    descripcion: "50 años celebrando a Freddy con el corazón lleno y listos para el segundo tiempo."
+    titulo: "MOMENTOS EN FAMILIA",
+    descripcion: "Las risas, las celebraciones y la compañía de quienes siempre han estado en la titular."
   }
 ];
 
@@ -169,8 +175,8 @@ function configurarBoleto() {
 
 // Fecha objetivo del evento: 6 de diciembre de 2026 a las 3:00 PM
 const FECHA_EVENTO = new Date(2026, 11, 6, 15, 0, 0);
-// Recordatorio el mismo día a las 8:00 AM
-const FECHA_RECORDATORIO = new Date(2026, 11, 6, 8, 0, 0);
+// Recordatorio el mismo día a las 3:00 PM
+const FECHA_RECORDATORIO = new Date(2026, 11, 6, 15, 0, 0);
 const KEY_REMINDER_ENABLED = "freddy50_reminder_enabled";
 const KEY_REMINDER_SENT = "freddy50_reminder_sent";
 
@@ -252,10 +258,10 @@ function iniciarRecordatorioPush() {
       btn.classList.add("is-active");
       btn.textContent = "RECORDATORIO ACTIVO ✓";
       status.textContent =
-        "Guardado en caché. Cuando abras el navegador el 6 de diciembre desde las 8:00 AM saltará el aviso.";
+        "Guardado en caché. Cuando abras el navegador el 6 de diciembre desde las 3:00 PM saltará el aviso.";
     } else {
       btn.classList.remove("is-active");
-      btn.textContent = "🔔 ACTIVAR RECORDATORIO (6 DIC · 8:00 AM)";
+      btn.textContent = "🔔 ACTIVAR RECORDATORIO (6 DIC · 3:00 PM)";
     }
   }
 
@@ -382,6 +388,58 @@ function activarTrompetasCelebracion() {
   }
 }
 
+function activarLluviaDeSobres() {
+  const seccion = document.getElementById("lluvia-sobres");
+  const capa = document.getElementById("envelope-rain-layer");
+  if (!seccion || !capa) return;
+
+  let yaActivo = false;
+
+  function crearSobreSVG(esDorado) {
+    const fondo = esDorado ? "#071E44" : "#FFFFFF";
+    const borde = esDorado ? "#D4AF37" : "#0F4698";
+    const solapa = esDorado ? "#F3DC8A" : "#134A9C";
+    return `
+      <svg viewBox="0 0 44 32" width="40" height="29" fill="none">
+        <rect x="1.5" y="1.5" width="41" height="29" rx="4" fill="${fondo}" stroke="${borde}" stroke-width="2"/>
+        <path d="M2.5 3.5 L22 18.5 L41.5 3.5" stroke="${solapa}" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    `;
+  }
+
+  function soltarCartas() {
+    for (let i = 0; i < 18; i++) {
+      const sobre = document.createElement("div");
+      sobre.className = "falling-envelope";
+      sobre.innerHTML = crearSobreSVG(i % 2 === 0);
+      sobre.style.left = `${4 + Math.random() * 90}%`;
+      sobre.style.setProperty("--dur", `${3.2 + Math.random() * 2.2}s`);
+      sobre.style.setProperty("--delay", `${(i * 0.14).toFixed(2)}s`);
+      sobre.style.setProperty("--drift", `${Math.round((Math.random() - 0.5) * 90)}px`);
+      sobre.style.setProperty("--r0", `${Math.round((Math.random() - 0.5) * 30)}deg`);
+      sobre.style.setProperty("--r1", `${Math.round((Math.random() - 0.5) * 70)}deg`);
+      capa.appendChild(sobre);
+      setTimeout(() => sobre.remove(), 6200);
+    }
+  }
+
+  const observer = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting && !yaActivo) {
+          yaActivo = true;
+          soltarCartas();
+        } else if (!entrada.isIntersecting) {
+          yaActivo = false;
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  observer.observe(seccion);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderizarGaleria();
   activarAnimacionesScroll();
@@ -389,4 +447,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const verificarRecordatorio = iniciarRecordatorioPush();
   iniciarContador(verificarRecordatorio);
   activarTrompetasCelebracion();
+  activarLluviaDeSobres();
 });
